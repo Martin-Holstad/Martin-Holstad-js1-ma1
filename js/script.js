@@ -1,117 +1,88 @@
+
 //Question 1
 
-const instrument = "guitar";
+const cat ={
+    complain: "Meow",
+};
 
-console.log(instrument);
+console.log(cat.complain);
 
 //Question 2
 
-const button = document.querySelector("button.login");
+const headerThree = document.querySelector("h3");
 
-console.dir(button);
+headerThree.innerHTML = "Updated heading";
 
 //Question 3
 
-const instruments = [
-    {
-        type: "guitar",
-        colour: "red",
-    },
-    {
-        type: "piano",
-        colour: "black",
-    },
-];
-
-console.table(instruments)
+headerThree.style.fontSize = "2em";
 
 //Question 4
 
-const name = "Percival";
-const age = 13;
+headerThree.className = "subheading";
 
 //Question 5
 
-let total = 0;
-total = total + 10;
+const paragraphs = document.querySelectorAll("p");
+
+for(let i = 0; i < paragraphs.length; i++) {
+    paragraphs[i].style.color = "red";
+}
 
 //Question 6
 
-for (let i = 0; i <= 5; i++) {
-    console.log(i);
-}
+const resultsContainer = document.querySelector(".results")
 
-//Qeustion 7
+resultsContainer.innerHTML = "<p>" + "New paragraph" + "</p>";
+resultsContainer.style.backgroundColor = "yellow";
 
-const firstName = "Florence";
+//Question 7
 
-const introduction = `Hello, my name is ${firstName}.`;
 
-console.log(introduction);
+const cats = [
+    {
+        name: "Blob",
+        age: 10
+    },
+    {
+        name: "Harold",
+    },
+    {
+        name: "Blurt",
+        age: 21
+    }
+];
 
-//Question 8
-
-const title = "Big Technical Event";
-
-const whatToHave = "good time";
-
-const welcome = `Welcome
-
-This ${title} is starting today.
-
-Have a ${whatToHave}!`;
-
-console.log(welcome);
-
-//Question 9
-
-const car = {
-    "paint-colour": "red",
-    "number of wheels": 3
-};
-
-console.log(car["paint-colour"]);
-console.log(car["number of wheels"])
-
-//Question 10
-
-const product = {
-    name: "Chicken Lips",
-    price: 35,
-    expired: false,
-    getExpired: function() {
-        console.log(this.expired);
+function animals(list) {
+    for(let i = 0; i < list.length; i++){
+        console.log(cats[i].name);
     }
 }
 
-product.getExpired();
+animals(cats);
 
-//Question 1
+//Question 8
 
-const heading = document.querySelector("h3")
+function createCats(cats) {
 
-heading.innerText = "Welcome";
+    let html = "";
 
-//Question 2
+    for(let i = 0; i < cats.length; i++){
 
-const headingTwo = document.querySelectorAll("h4")
+        let ageUnknown = "Age unknown"
 
-headingTwo.margin.bottom = "-20px";
+        if(cats[i].age) {
+            ageUnknown = cats[i].age;
+        }
 
-//Question 3
+        html = html + "<div>" + "<h5>" + cats[i].name + "</h5>" + "<p>"  + ageUnknown + "</p>" + "</div>"
+    }
 
-headingTwo[1].style.backgroundColor = "red";
+    return html;
+}
 
-//Question 4
+const newHtml = createCats(cats);
 
-const textOne = document.querySelectorAll("p");
-
-textOne[0].style.fontSize = "24px";
-textOne[0].style.color = "blue";
-
-//Question 5
-
-const text = document.querySelectorAll(".text-three")
-
-text.innerhtml = "<span>" + text.innerhtml + "</span>";
+const catContainer = document.querySelector(".cat-container");
+catContainer.innerHTML = newHtml;
 
